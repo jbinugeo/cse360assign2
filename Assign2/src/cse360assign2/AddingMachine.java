@@ -9,12 +9,14 @@ package cse360assign2;
 public class AddingMachine {
 
 	private int total; //running total
+	private StringBuffer history; //running history of expressions
 	
 	/**
 	 * This method starts from 0 and appends 0 into the expression string
 	 */
 	public AddingMachine () {
 		total = 0;  // not needed - included for clarity
+		history = new StringBuffer("0"); //starts out with 0
 	}
 	
 	/**
@@ -22,7 +24,7 @@ public class AddingMachine {
 	 * @return returning the total
 	 */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/**
@@ -30,7 +32,8 @@ public class AddingMachine {
 	 * @param value value that is used to be manipulated by the method
 	 */
 	public void add (int value) {
-		
+		total = total + value; //adds value to the total
+		history.append((" + ") + value); //concatinates + to the value
 	}
 	
 	/**
@@ -38,20 +41,21 @@ public class AddingMachine {
 	 * @param value value that is used to be manipulated by the method
 	 */
 	public void subtract (int value) {
-		
+		total = total - value; // subtracts value to the total
+		history.append((" - ") + value); // concatinates - to the value
 	}
 	
 	/**
 	 * This method returns all the expressions that were inputted as a string
 	 */
 	public String toString () {
-		return "";
+		return history.toString(); //makes the expression into a string
 	}
 
 	/**
 	 * This method clears the running total that was gotten before and turns in into 0
 	 */
 	public void clear() {
-
+		total = 0; 
 	}
 }
